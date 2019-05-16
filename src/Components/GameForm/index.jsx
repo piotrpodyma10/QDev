@@ -2,6 +2,7 @@ import React from 'react'
 import Questions from './../../Questions'
 import RandomAnswers from './../../Questions/RandomAnswer'
 import TakeQuestionsByNumber from './../../Questions/TakeQuestionsByNumber'
+import { withRouter } from 'react-router-dom'
 import './styles.scss'
 
 class GameForm extends React.Component {
@@ -15,7 +16,8 @@ class GameForm extends React.Component {
 
   next = () => {
     if (this.state.actualQuestion === 29) {
-      this.props.history.push("/Result")
+      const { history } = this.props
+      history.push("/Result")
     }
     this.setState({ 
       actualQuestion: this.state.actualQuestion + 1, 
@@ -103,4 +105,4 @@ class GameForm extends React.Component {
   }
 }
 
-export default GameForm
+export default withRouter(GameForm)
