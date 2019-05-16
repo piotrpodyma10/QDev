@@ -1,0 +1,20 @@
+* {margin: 0; padding: 0;}
+body {background: black;}
+canvas {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+
+.gameContainer {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  div {
+    display: flex;
+  }
+}

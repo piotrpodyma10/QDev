@@ -1,0 +1,23 @@
+.gamePanel {
+  background-color: rgba(1,1,1,.7);
+  width: 800px;
+  min-height: 700px;
+  height: auto;
+  margin: auto;
+  opacity: 1;
+  animation: display 6s;
+  animation-timing-function: ease-in;
+  border: 2px solid white;
+}
+
+@keyframes display {
+  0% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,88 @@
+.gameForm {
+  width: inherit;
+  height: inherit;
+  display: block !important;
+  padding: 15px;
+
+  & .question {
+    width: 100%;
+    text-align: center;
+    color: black;
+    margin: auto;
+    padding: 20px 0px;
+    font-size: 20px;
+    color: white;
+
+    & .questionText {
+      float: left;
+      width: 700px;
+      font-size: 20px;
+      text-align: left;
+    }
+
+    & .questionNumber {
+      float: right;
+      width: 70px;
+      display: block;
+      text-align: right;
+      color: lawngreen;
+    }
+  }
+
+  & .answers {
+    height: 200px;
+    width: 100%;
+    background-color: rgb(0, 0, 0);
+    display: block;
+    color: white;
+
+    & .answerA, .answerB, .answerC, .answerD {
+      background-color: #004c45;
+      border: 2px solid white;
+      color: white;
+      width: 341px;
+      float: left;
+      margin: 10px;
+      height: 53px;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: 1s;
+
+      &:hover {
+        background-color: black;
+        transition: 1s;
+        color: lawngreen;
+        cursor: pointer;
+      }
+    }
+  }
+
+  & .image {
+    width: 100%;
+    height: 300px;
+    justify-content: center;
+  }
+  & .submit {
+    float: left;
+    width: 100%;
+    & .submitButton {
+      background-color: black !important;
+      width: 250px;
+      border: 2px solid white;
+      margin: 15px auto;
+      height: 50px;
+      transition: 2s;
+      &:hover, :focus {
+        animation: shake 1s infinite;
+        transition: 2s;
+        animation: none;
+        color: white;
+        box-shadow: 
+          inset -200px 0 0 0 #4b6901, inset 200px 0 0 0 #4b6901
+      }
+    }
+  }
+}
+
