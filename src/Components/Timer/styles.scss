@@ -1,0 +1,70 @@
+.timer {
+  position: absolute; 
+  top: 0; 
+  right: 0; 
+  margin: 30px;
+  // background-color: rgb(75, 75, 75);
+  // animation: pulse 0.4s infinite;
+  // padding: 15px;
+  // border: white solid 2px;
+  // border-radius: 100%;
+
+  height: 124px;
+  width: 124px;
+  background-color: rgba(1,1,1, .9);
+  border-radius: 100%;
+  animation: pulse 1s infinite;
+
+
+  // &:hover {
+  //   cursor: pointer;
+    
+  //   .background {
+  //     stroke: transparent;
+  //   }
+    
+  //   .foreground {
+  //     stroke-dashoffset: 0;
+  //     transform: rotate(-90deg);
+  //   }
+  // }
+}
+
+.background {
+  fill: transparent;
+  stroke: #ffffff;
+  transition: all 200ms ease;
+  stroke-width: 2;
+  animation: timerAnimation 1s infinite;
+}
+
+.foreground {
+  fill: transparent;
+  stroke-dasharray: 377;
+  stroke-dashoffset: 377;
+  stroke: lawngreen;
+  transform-origin: 50% 50%;
+  transform: rotate(-270deg);
+  transition: all 800ms ease;
+  stroke-width: 2;
+  animation: foregroundAnimation 1s infinite
+}
+
+@keyframes timerAnimation {
+  0% {
+   
+  }
+  100% {
+    stroke: transparent;
+  }
+}
+
+@keyframes foregroundAnimation {
+  0% {
+
+  }
+  100% {
+    stroke-dashoffset: 0;
+    transform: rotate(-90deg);
+  }
+}

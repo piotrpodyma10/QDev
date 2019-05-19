@@ -1,9 +1,9 @@
 import React, { Fragment } from 'react'
-import Questions from './../../Questions'
 import RandomAnswers from './../../Questions/RandomAnswer'
 import TakeQuestionsByNumber from './../../Questions/TakeQuestionsByNumber'
 import { withRouter } from 'react-router-dom'
 import './styles.scss'
+import Timer from '../Timer';
 
 class GameForm extends React.Component {
   constructor() {
@@ -14,27 +14,27 @@ class GameForm extends React.Component {
       questionNumber: 30,
       canClick: true,
       questions: RandomAnswers(TakeQuestionsByNumber()) || [],
-      seconds: 5
+      seconds: 30,
+      timeToChangeQuestion: 5000,
+      music: true
     }
     this.timer = 0;
-    this.startTimer = this.startTimer.bind(this);
-    this.countDown = this.countDown.bind(this);
   }
 
-  startTimer() {
-    if (this.timer == 0 && this.state.seconds > 0) {
-      this.timer = setInterval(this.countDown, 1000);
+  startTimer = () => {
+    const { seconds, timeToChangeQuestion } = this.state
+    if (this.timer == 0 && seconds > 0) {
+      setTimeout(() => this.timer = setInterval(this.countDown, 1000), timeToChangeQuestion)
     }
   }
 
-  countDown() {
-    let restSeconds = this.state.seconds - 1;
+  countDown = () => {
+    let restSeconds = this.state.seconds - 1
     this.setState({
       seconds: restSeconds,
-    });
+    })
     
-    if (restSeconds == 0) { 
-      clearInterval(this.timer);
+    if (restSeconds === 0) { 
       this.next()
     }
   }
@@ -42,24 +42,27 @@ class GameForm extends React.Component {
   next = () => {
     if (this.state.actualQuestion === 29) {
       const { history } = this.props
-      history.push("/Result")
+      history.push({
+        pathname: "/Result",
+        state: { result: this.state.points}
+      })
     }
+    clearInterval(this.timer)
+    this.timer = 0
     this.setState({ 
-      actualQuestion: this.state.actualQuestion + 1, 
+      actualQuestion: this.state.actualQuestion + 1,
+      timeToChangeQuestion: 0, 
       canClick: true,
-      seconds: 5
+      seconds: 30
     })
-    this.timer = 0;
-    this.startTimer()
   }
 
   value = (index) => {
     const { questions, actualQuestion, points, canClick } = this.state
-    
+
     if (index === questions[actualQuestion].goodAnswerIndex && canClick) {
       this.setState({ points: points + 10 })
     }
-    
     this.setState({ canClick: false })
   }
 
@@ -75,9 +78,9 @@ class GameForm extends React.Component {
 
   render() {
     const { questions, actualQuestion, questionNumber } = this.state
+    this.startTimer()
     return (
       <Fragment>
-
         <div className="gameForm">
           <div className="question">
             <div className="questionText">{questions[actualQuestion].question}</div>
@@ -87,7 +90,8 @@ class GameForm extends React.Component {
             <img 
               src={require(`../../Questions/imgs/${questions[actualQuestion].imgId}`)} 
               height="300" 
-              width="550" 
+              width="550"
+              alt="img" 
             />
           </div>
           <div className="answers">
@@ -130,10 +134,7 @@ class GameForm extends React.Component {
             </button>
           </div>
         </div>
-        <div className="TIMER" style={{position: "absolute", top:"0", left: "0", backgroundColor:"green"}}>
-          <button onClick={this.startTimer}> Start </button>
-          S: {this.state.seconds}
-        </div>
+        <Timer time={this.state.seconds} />
       </Fragment>
     )
   }
