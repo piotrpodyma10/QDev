@@ -1,12 +1,11 @@
 .gamePanel {
   background-color: rgba(1,1,1,.7);
   width: 800px;
-  min-height: 700px;
+  min-height: 645px;
   height: auto;
   margin: auto;
   opacity: 1;
   animation: display 6s;
-  // animation: dancingWindow 5s infinite;
   animation-timing-function: ease-in;
   border: 2px solid black;
 }
