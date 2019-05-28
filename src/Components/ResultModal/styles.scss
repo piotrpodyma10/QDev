@@ -1,0 +1,14 @@
+.part {
+  padding: 25px;
+
+  & button {
+    padding: 5px 10px;
+    background-color: white;
+    color: black;
+    font-weight: bold;
+  }
+}
+
+.resultModal {
+  font-size: 18px;
+}

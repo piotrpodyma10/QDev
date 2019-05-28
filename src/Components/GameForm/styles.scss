@@ -9,17 +9,16 @@
     text-align: center;
     color: black;
     margin: auto;
-    padding: 20px 0px;
-    font-size: 20px;
+    padding: 10px 0px 5px 0px;
+    font-size: 16px;
     color: white;
+    height: 52px;
 
     & .questionText {
       float: left;
       width: 700px;
-      font-size: 20px;
+      font-size: 16px;
       text-align: left;
-      // font-family: "Times New Roman", Times, serif;
-      // font-family: 'Orbitron', sans-serif;
       font-family: 'Hind Vadodara', sans-serif;
     }
 
@@ -33,7 +32,7 @@
   }
 
   & .answers {
-    height: 200px;
+    height: 172px;
     width: 100%;
     background-color: rgb(0, 0, 0);
     display: block;
@@ -46,13 +45,14 @@
       width: 341px;
       float: left;
       margin: 10px;
-      height: 53px;
+      height: 40px;
       padding: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
       transition: 1s;
       font-family: 'Hind Vadodara', sans-serif;
+      font-size: 14px;
 
       &:hover {
         background-color: black;
@@ -80,80 +80,12 @@
       transition: 2s;
       &:hover, :focus {
         animation: shake 1s infinite;
-        transition: 2s;
+        transition: 1.5s;
         animation: none;
         color: white;
         box-shadow: 
-          inset -200px 0 0 0 #4b6901, inset 200px 0 0 0 #4b6901
+          inset -200px 0 0 0 #00bb20, inset 200px 0 0 0 #00bb20
       }
     }
   }
 }
-
-// .timer {
-//   position: absolute; 
-//   top: 0; 
-//   left: 0; 
-//   margin: 15px;
-//   // background-color: rgb(75, 75, 75);
-//   // animation: pulse 0.4s infinite;
-//   // padding: 15px;
-//   // border: white solid 2px;
-//   // border-radius: 100%;
-
-//   height: 124px;
-//   width: 124px;
-
-  
-
-
-//   &:hover {
-//     cursor: pointer;
-    
-//     .background {
-//       stroke: transparent;
-//     }
-    
-//     .foreground {
-//       stroke-dashoffset: 0;
-//       transform: rotate(-90deg);
-//     }
-    
-//     .line {
-//       stroke: #EE3769;
-//     }
-    
-//     .line {
-//       transform: rotate(180deg);
-//     }
-//   }
-// }
-
-// .background {
-//   fill: transparent;
-//   stroke: #1abc9c;
-//   transition: all 200ms ease;
-//   stroke-width: 2;
-// }
-
-// .foreground {
-//   fill: transparent;
-//   stroke-dasharray: 377;
-//   stroke-dashoffset: 377;
-//   stroke: #EE3769;
-//   transform-origin: 50% 50%;
-//   transform: rotate(-270deg);
-//   transition: all 800ms ease;
-//   stroke-width: 2;
-// }
-
-// .line {
-//   stroke-width: 2;
-//   stroke: #1abc9c;
-//   transform-origin: 50% 50%;
-//   transition: all 500ms ease;
-// }
-
-// @keyframes timerAnimation {
-
-// }

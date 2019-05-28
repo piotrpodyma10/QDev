@@ -1,15 +1,13 @@
 import React from 'react'
 import './styles.scss'
+import ResultModal from '../../Components/ResultModal'
 
 class Result extends React.Component {
   render() {
-    console.log("POINTS", this.props);
-    console.log("POINTS2", this.state);
-    
+    const points = this.props.location.state ? this.props.location.state.result : 0
     return (
-      <div>
-
-        RESULT VIEW
+      <div className="resultView">
+        <ResultModal points={points} />
       </div>
     )
   }
